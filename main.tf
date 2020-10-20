@@ -9,7 +9,7 @@ resource "aws_instance" "webapp" {
     key_name      = var.keyname
     tags          = {
         Name      = "webapp01"
-        environment = "prod"
+        environment = "dev"
         timetolive  = "10"
         backup      = "yes"
     }
