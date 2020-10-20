@@ -4,12 +4,12 @@ provider "aws" {
 }
 
 resource "aws_instance" "webapp" {
-    instance_type = "t2.micro"
-    ami           = "ami-0947d2ba12ee1ff75"
-    key_name      = "aug2020"
+    instance_type = var.instance_type
+    ami           = data.aws_ami.amazonlx.id
+    key_name      = var.keyname
     tags          = {
         Name      = "webapp01"
-        environment = "dev"
+        environment = "prod"
         timetolive  = "10"
         backup      = "yes"
     }
