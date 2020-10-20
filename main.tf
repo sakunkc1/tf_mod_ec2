@@ -8,9 +8,9 @@ resource "aws_instance" "webapp" {
     ami           = data.aws_ami.amazonlx.id
     key_name      = var.keyname
     tags          = {
-        Name      = "webapp01"
-        environment = "dev"
+        Name      = "webappdev01"
+        environment = "develope"
         timetolive  = "10"
-        backup      = "yes"
+        backup      = "no"
     }
 }
