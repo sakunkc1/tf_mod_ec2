@@ -11,6 +11,6 @@ resource "aws_instance" "webapp" {
         Name      = "webappdev01"
         environment = "develope"
         timetolive  = "10"
-        backup      = "no"
+        backup      = "yes"
     }
 }
