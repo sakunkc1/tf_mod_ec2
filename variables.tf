@@ -5,4 +5,5 @@ variable  "instance_type" {
 
 variable "keyname"{
     type = string
+    default = "aug2020"
 }
