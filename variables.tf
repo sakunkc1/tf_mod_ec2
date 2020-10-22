@@ -12,5 +12,6 @@ variable "availability_zone" {
 }
 variable "lb_name" {
   type    = string
-  default = ""
+  default =  " "
+
 }
