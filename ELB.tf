@@ -1,18 +1,25 @@
-resource "aws_elb" "webapp" {
-  name = "terraform-webapp-elb"
-  security_groups = ["${aws_security_group.elb.id}"]
-  availability_zones = ["${data.aws_availability_zones.all.names}"]
-  health_check {
-    healthy_threshold = 2
-    unhealthy_threshold = 2
-    timeout = 3
-    interval = 30
-    target = "HTTP:8080/"
-  }
+resource "aws_elb" "elb" {
+  name               = "terraform-elb"
+  availability_zones = ["us-east-1a"]
   listener {
-    lb_port = 80
-    lb_protocol = "http"
-    instance_port = "8080"
+    instance_port     = 8000
     instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
+  }
+  health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:8000/"
+    interval            = 30
+  }
+  instances                   = [var.instance_type]
+  cross_zone_load_balancing   = true
+  idle_timeout                = 400
+  connection_draining         = true
+  connection_draining_timeout = 400
+  tags = {
+    Name = "terraform-elb"
   }
 }
