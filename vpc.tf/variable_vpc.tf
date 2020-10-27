@@ -1,16 +1,9 @@
 # variables.tf
 variable "access_key" {
-<<<<<<< HEAD:vpc.tf/variable_vpc.tf
-     default = ""
-}
-variable "secret_key" {
-     default = ""
-=======
      default = " "
 }
 variable "secret_key" {
-     default = " "
->>>>>>> f8f0dfecd24d3d6bb4afd4010ae921da0b522400:vpc.tf/variable.tf
+     default = " " 
 }
 variable "region" {
      default = "us-east-1"
